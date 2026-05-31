@@ -13,6 +13,7 @@ app = Flask(__name__)
 app.config.from_object(Config)
 
 CORS(app, origins=["https://expense-tracker-app00.netlify.app"], supports_credentials=False)
+# CORS(app, origins=["http://localhost:3000"], supports_credentials=False)
 
 db.init_app(app)
 migrate = Migrate(app, db)
