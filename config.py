@@ -8,4 +8,5 @@ DATABASE_URL = os.getenv(
 class Config:
     SQLALCHEMY_DATABASE_URI = DATABASE_URL
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    CORS_ORIGINS = os.getenv("CORS_ORIGINS", "*")
+    cors_raw = os.getenv("CORS_ORIGINS", "*")
+    CORS_ORIGINS = [o.strip() for o in cors_raw.split(",")] if "," in cors_raw else cors_raw
