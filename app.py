@@ -12,7 +12,7 @@ from routes.budget_routes import budget_bp
 app = Flask(__name__)
 app.config.from_object(Config)
 
-CORS(app, origins=app.config["CORS_ORIGINS"], supports_credentials=False)
+CORS(app, origins=["https://expense-tracker-app00.netlify.app"], supports_credentials=False)
 
 db.init_app(app)
 migrate = Migrate(app, db)
